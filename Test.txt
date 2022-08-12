@@ -1,0 +1,125 @@
+1.What are the differences between local and global temporary tables?
+ANSWER:
+*The local temporary tables consider local values.
+*This table return values.
+*The Global temporary tables consider data values.
+*This table no return data values .
+
+2.Check constraint?
+ANSWER:
+*The Check constaint oprations table data values are checking.
+*The example fro Chechk constraint greater than or less than etc..
+
+3.What is an IDENTITY?
+ANSWER:
+*The Identity column is defined insert the data values in the statement.
+*The data are insert in every column.
+
+4.what is the difference between COMMIT and ROLLBACK?
+ANSWER:
+*The Commit opration is used in the table to all data values are commit in the each column.
+*The Rollback opration is used in the table data values are trasction rollback.
+
+5.Filtered Index?
+ANSWER:
+*The Filtered index is, the user have need some person data values and you have using filtered opration.
+*Then find person data values.
+
+6.Join?
+ANSWER:
+*The Join opration to have used one table values and another table values are joined.
+*this opration called join.
+Types:
+*Inner join
+*Full Join
+*Left join
+*Rright join
+*
+
+7.How can you relate a foreign key and a primary key?
+*Primary key and foreign key is used to join one table values and another table values.
+
+8.Stored procedure and functions?
+ANSWER:
+*The stored procedure data values are stored in a procedure.
+
+
+
+
+
+
+
+create database SATURDAY
+use SATURDAY
+
+CREATE TABLE WORKER
+(
+WORKER_ID VARCHAR(10) NOT NULL PRIMARY KEY,
+FIRST_NAME CHAR(25),
+LAST_NAME CHAR(25),
+SALARY VARCHAR(15),
+JOINING_DATE DATETIME,
+DEPARTMENT CHAR(25)
+)
+SELECT * FROM WORKER
+
+
+INSERT INTO Worker VALUES(001, 'Monika', 'Arora', 100000, '08-06-2022  02:42:00', 'HR')
+INSERT INTO Worker VALUES(002, 'Niharika', 'Verma', 80000, '08-06-2022  02:42:00', 'Admin')
+INSERT INTO Worker VALUES(003, 'Vishal', 'Singhal', 300000, '08-06-2022  02:42:00', 'HR')
+INSERT INTO Worker VALUES(004, 'Amitabh', 'Singh', 500000, '08-06-2022  02:42:00', 'Admin')
+INSERT INTO Worker VALUES(005, 'Vivek', 'Bhati', 500000, '08-06-2022  02:42:00', 'Admin')
+INSERT INTO Worker VALUES(006, 'Vipul', 'Diwan', 200000, '08-06-2022  02:42:00', 'Account')
+INSERT INTO Worker VALUES(007, 'Satish', 'Kumar', 75000,'08-06-2022  02:42:00', 'Account')
+INSERT INTO Worker VALUES(008, 'Geetika', 'Chauhan', 90000, '08-06-2022 02:42:00', 'Admin')
+
+CREATE TABLE Title (
+	WORKER_REF_ID INT,
+	WORKER_TITLE CHAR(25),
+	AFFECTED_FROM DATETIME,
+	
+)
+SELECT * FROM Title
+insert into Title values(001, 'Manager', '2016-02-20 00:00:00') 
+insert into Title values(002, 'Executive', '2016-06-11 00:00:00')
+insert into Title values(008, 'Executive', '2016-06-11 00:00:00')
+insert into Title values(005, 'Manager', '2016-06-11 00:00:00')
+insert into Title values(004, 'Asst. Manager', '2016-06-11 00:00:00')
+insert into Title values(007, 'Executive', '2016-06-11 00:00:00')
+insert into Title values(006, 'Lead', '2016-06-11 00:00:00')
+insert into Title values(003, 'Lead', '2016-06-11 00:00:00')
+
+--1 ouestion
+SELECT * INTO WORKER CLONE FOR WORKER
+
+--2 QUESTION
+SELECT CONCAT(FIRST_NAME,LAST_NAME) AS 'COMPLETE_NAME' FOR WORKER
+
+--3 QUESTION
+SELECT * FROM WORKER ORDER BY FIRST_NAME ASC
+
+--4 QUESTION 
+SELECT * FROM WORKER WHERE SALARY BETWEEN 10000 AND 50000
+
+--5 QUESTION
+SELECT * FROM WORKER ORDERBY DEPARTMENT DESC
+
+--6 QUESTION
+GREAT triggr DML
+ON TITLE
+FROM UPDATE
+AS
+BEGIN
+PRINT 'YOU CANNOT PERFORM UPDATE'
+ROLLBACK TRANSACTION
+END 
+
+
+
+
+
+
+
+
+
+ 
